@@ -1,18 +1,19 @@
 import fonctions as f
+
 while True:
     try:
-   
-        b = float(input("Entrez un nombre 1 (ou appuyez sur CTRL-C pour quitter) : "))
-        a = float(input("Entrez un nombre 2 (ou appuyez sur CTRL-C pour quitter) : "))
+        b = int(input("Entrez un nombre 1 (ou appuyez sur CTRL-C pour quitter) : "))
+        a = int(input("Entrez un nombre 2 (ou appuyez sur CTRL-C pour quitter) : "))
 
-     
-        carre1 = a ** 2
+
+        res = f.puissance(a, b)
         
-        
-        res = f.puissance(a,b)
-        
-        print(res)
+        print(f"Le résultat de {a} élevé à la puissance {b} est : {res}")
+
     except KeyboardInterrupt:
-
         print("\nInterruption reçue. Fin du programme.")
-        break 
+        break
+    except ValueError:
+        print("Veuillez entrer des nombres entiers valides.")
+    except TypeError as e:
+        print(f"Erreur de type : {e}")

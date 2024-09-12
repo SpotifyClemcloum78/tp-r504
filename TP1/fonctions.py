@@ -1,8 +1,4 @@
 def puissance(a, b):
-
+    if not type(a) is int or not type(b) is int:
+        raise TypeError("Les arguments doivent être entier")
     return a ** b
-a = float(input("Entrez a : "))
-b = float(input("Entrez b : "))
-
-resultat = puissance(a, b)
-print(f"{a} à la puissance {b} est {resultat}")
