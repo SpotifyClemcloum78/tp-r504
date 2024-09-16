@@ -2,18 +2,23 @@ import fonctions as f
 
 while True:
     try:
-        b = int(input("Entrez un nombre 1 (ou appuyez sur CTRL-C pour quitter) : "))
-        a = int(input("Entrez un nombre 2 (ou appuyez sur CTRL-C pour quitter) : "))
+        # Demander à l'utilisateur de saisir les deux nombres
+        a = float(input("Nombre entier : "))
+        b = float(input("Exposant entier : "))
 
+        # Vérifier si les valeurs sont des entiers
+        if not a.is_integer() or not b.is_integer():
+            raise ValueError("Valeurs entières nécéssaire")
 
-        res = f.puissance(a, b)
-        
-        print(f"Le résultat de {a} élevé à la puissance {b} est : {res}")
+        # Convertir les valeurs en entiers
+        a = int(a)
+        b = int(b)
 
-    except KeyboardInterrupt:
-        print("\nInterruption reçue. Fin du programme.")
-        break
-    except ValueError:
-        print("Veuillez entrer des nombres entiers valides.")
-    except TypeError as e:
-        print(f"Erreur de type : {e}")
+        # Calculer la puissance en utilisant la fonction
+        resultat = f.puissance(a, b)
+
+        # Afficher le résultat
+        print(f"{a} puissance {b} égal à {resultat}.")
+    
+    except (ValueError, TypeError) as e:
+        print(f"Erreur : {e}")
