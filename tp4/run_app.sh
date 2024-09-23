@@ -23,3 +23,4 @@ else
     echo "Erreur lors du lancement du conteneur $CONTAINER_NAME."
     exit 1
 fi
+
