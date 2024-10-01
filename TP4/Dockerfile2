@@ -1,0 +1,4 @@
+FROM python:3.9-slim  # Utilise une image de base appropriée pour Python
+WORKDIR /srv  # Définit le répertoire de travail
+
+CMD ["python", "app.py"]  # Remplace "app.py" par le nom de ton fichier Python
