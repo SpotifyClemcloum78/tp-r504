@@ -1,0 +1,8 @@
+Q2.1 - Que se passe-t-il si on lance le client sans que le serveur ne soit actif :
+Le message n'est pas transmis et le client affiche adresse=prof-HP-Compaq-Pro-6300-MT
+Q2.2 - Quel est le numéro de port utilisé : 1234
+Chercher si cela est un choix pertinent. Pourquoi ? :
+Oui car il est utilisé pour les applications de test
+Q2.3 - Modifier les deux programmes pour que le serveur renvoie la chaîne reçue au client, et que
+celui-ci attende cette chaîne et l’affiche avant de quitter
+
