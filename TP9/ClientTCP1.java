@@ -1,26 +1,25 @@
 import java.io.*;
 import java.net.*;
 
-public class ClientUDP {
-    public static void main(String[] args) {
-        try {
-            DatagramSocket sock = new DatagramSocket();
-            String messageToSend = "Hello, Server!";
-            byte[] dataToSend = messageToSend.getBytes();
+public class ClientTCP1 
+{
+    public static void main(String[] args) 
+	{
+        try 
+		{
+            // Connexion au serveur localhost sur le port 2016
+            Socket socket = new Socket("localhost", 2016);
 
-            InetAddress addr = InetAddress.getByName("localhost");
-            DatagramPacket packetToSend = new DatagramPacket(dataToSend, dataToSend.length, addr, 1234);
-            sock.send(packetToSend); 
-            System.out.println("Message envoyé: " + messageToSend);
+            // Création du flux de sortie pour envoyer des données
+            DataOutputStream dOut = new DataOutputStream(socket.getOutputStream());
 
-            byte[] buffer = new byte[1024];
-            DatagramPacket responsePacket = new DatagramPacket(buffer, buffer.length);
-            sock.receive(responsePacket); 
+            // Envoi du message "message test"
+            dOut.writeUTF("message test");
 
-            String receivedResponse = new String(responsePacket.getData(), 0, responsePacket.getLength());
-            System.out.println("Réponse reçue du serveur: " + receivedResponse);
-            sock.close(); 
-        } catch (Exception e) {
+            // Fermeture du socket
+            socket.close();
+        } catch (IOException e) 
+		{
             e.printStackTrace();
         }
     }
