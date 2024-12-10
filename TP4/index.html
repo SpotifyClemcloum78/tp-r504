@@ -1,19 +1,39 @@
 <html>
 <head>
-<title>Demo sql query in table</title>
+    <title>Demo SQL Query in Table</title>
 </head>
 <body>
 
-Table:
-<table>
-{% for row in data %}
-<tr>
-    {% for item in row %}
-      <td>{{ item }}</td>
+<h1>Table des données</h1>
+<table border="1">
+    {% for row in data %}
+    <tr>
+        {% for item in row %}
+        <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
     {% endfor %}
-</tr>
-{% endfor %}
 </table>
+
+<h2>Validation d'identifiant</h2>
+<form method="POST">
+    <label for="username">Saisissez un identifiant :</label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">Valider</button>
+</form>
+
+{% if success_message %}
+<p style="color: green;">{{ success_message }}</p>
+{% endif %}
+
+{% if errors %}
+<ul style="color: red;">
+    {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
 </body>
 </html>
 
